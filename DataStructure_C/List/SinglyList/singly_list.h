@@ -19,15 +19,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define int 1 TRUE
-#define int 0 FALSE
+#define TRUE 1
+#define FALSE 0
 
 
-typedef struct {
+struct singly_node{
     void* data;
-    singly_node_t* next;
-} singly_node_t;
-
+    struct singly_node* next;
+} ;
+typedef struct singly_node singly_node_t;
 
 typedef struct {
     singly_node_t* head;

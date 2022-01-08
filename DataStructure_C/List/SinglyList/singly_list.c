@@ -25,18 +25,18 @@ void push_to_singly_list(void* data, singly_list_t* list){
     assert(list && data);
 
     // create a node to hold the data
-    singly_list_t* node = allocate_node(data);
+    singly_node_t* node = allocate_node(data);
 
-    // add the node to the list.
+    // add the node to the list->
 
     // case first node in the list
-    if(list.size == 0){
+    if(list -> size == 0 && list -> tail != NULL){
         list -> head = list -> tail = node;
         list -> size ++;
     }
 
     else {
-        list -> tail -> next = node;
+       (list -> tail) -> next = node;
         list -> tail = node;
         list -> size ++;
     }
@@ -46,11 +46,13 @@ void add_by_index_singly_list(void* data, int index, singly_list_t* list){
     assert(data && index > 0);
 
     // if the index in larger than the current size, simply add to the tail of the list
-    if(index >= list.size){
+    if(index >= list->size){
         push_to_singly_list(data, list);
     }
 
     else{
+        // add the node
+        singly_node_t* node = allocate_node(data);
         // loop til the index
         singly_node_t* precedesor = NULL;
         singly_node_t* cur = list->head;
@@ -67,7 +69,7 @@ void add_by_index_singly_list(void* data, int index, singly_list_t* list){
     }
 };
 
-void* pop_from_singly_list(singly_node_t* list){
+void* pop_from_singly_list(singly_list_t* list){
     assert(list && list -> size > 0);
 
     singly_node_t* data = list -> head;
@@ -95,8 +97,8 @@ void* remove_by_index_singly_list(int index, singly_list_t* list){
     }
 
     // loop till reach the desired index;
-    singly_list_t* precedesor = NULL;
-    singly_list_t* cur = list-> head;
+    singly_node_t* precedesor = NULL;
+    singly_node_t* cur = list-> head;
 
     for(int i = 0; i != index; i++){
         precedesor = cur;

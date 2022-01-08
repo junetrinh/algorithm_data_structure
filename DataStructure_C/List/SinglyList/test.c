@@ -1,7 +1,7 @@
 #include "singly_list.h"
 
 int main(int argc, char** argv){
-
+    printf("++++++Testing the singly list ____++++++++++++");
     // create a singly_list
     singly_list_t* list = create_singly_list();
 
@@ -18,6 +18,6 @@ int main(int argc, char** argv){
 
     // test 1: check the data in the list
     if(list -> size != 10){
-        pintf("");
+        printf("a");
     }
 }
