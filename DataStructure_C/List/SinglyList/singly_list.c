@@ -30,16 +30,15 @@ void push_to_singly_list(void* data, singly_list_t* list){
     // add the node to the list->
 
     // case first node in the list
-    if(list -> size == 0 && list -> tail != NULL){
+    if(list -> size == 0 && list -> tail == NULL){
         list -> head = list -> tail = node;
-        list -> size ++;
     }
 
     else {
        (list -> tail) -> next = node;
         list -> tail = node;
-        list -> size ++;
     }
+    list -> size ++;
 }
 
 void add_by_index_singly_list(void* data, int index, singly_list_t* list){
@@ -83,7 +82,8 @@ void* pop_from_singly_list(singly_list_t* list){
     }
 
     list -> size --;
-
+    printf("%d\n", *(int*) list -> head);
+    
     return data;
 }
 
